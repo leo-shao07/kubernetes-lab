@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: timer-cronjob
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: timer-cronjob
+              image: busybox
+              args:
+              - /bin/sh
+              - -c
+              - date;
+          restartPolicy: OnFailure
+  suspend: false
