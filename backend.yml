@@ -21,6 +21,9 @@ spec:
           - containerPort: 8000
           args:
             - ./entrypoint.sh
+          resources:
+            requests:
+              cpu: 200m
 ---
 apiVersion: v1
 kind: Service
